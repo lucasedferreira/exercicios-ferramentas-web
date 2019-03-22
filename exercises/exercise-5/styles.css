@@ -1,0 +1,39 @@
+.header_footer {
+    background-color: #808080;
+    color: white;
+    padding: 20px;
+}
+
+#menu {
+    width: 200px;
+    padding-left: 20px;
+    float: left;
+}
+
+#menu ul {
+    display: inline;
+}
+
+#information {
+    padding: 50px;
+    float: left;
+}
+
+#photo {
+    padding: 20px;
+    float: right;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.bg-blue {
+    padding: 8px;
+    /* float: left; */
+    background-color: #32b5e5;
+}
+
+.white {
+    color: white;
+}
