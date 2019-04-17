@@ -1,0 +1,14 @@
+.main h1 {
+    font-size: 80px;
+    text-align: center;
+}
+
+.main .description {
+    font-size: 30px;
+}
+
+.main .description .video {
+    /* position: fixed; right: 20px; bottom: 20px; */
+    float: left;
+    padding: 30px;
+}

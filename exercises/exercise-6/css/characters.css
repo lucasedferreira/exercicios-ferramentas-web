@@ -1,0 +1,43 @@
+.main h1 {
+    font-size: 80px;
+    text-align: center;
+}
+
+.main .description {
+    font-size: 30px;
+}
+
+.main .description .video {
+    /* position: fixed; right: 20px; bottom: 20px; */
+    float: left;
+    padding: 30px;
+}
+
+.characters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.characters .title {
+    font-weight: bold;
+    font-size: 35px;
+}
+
+.characters .subtitle {
+    font-style: italic;
+    font-size: 20px;
+}
+
+.characters div {
+    text-align: center;
+    background-color: white;
+    flex-grow: 1;
+    margin: 20px;
+    max-width: 400px;
+}
+
+.characters div img {
+    height: 400px;
+    padding: 10px;
+}

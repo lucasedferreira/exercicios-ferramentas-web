@@ -1,0 +1,15 @@
+.main h1 {
+    font-size: 80px;
+    text-align: center;
+}
+
+.main .description {
+    font-size: 30px;
+    padding: 20px;
+}
+
+.main .description .poster {
+    float: right;
+    padding: 35px;
+    height: 550px;
+}
