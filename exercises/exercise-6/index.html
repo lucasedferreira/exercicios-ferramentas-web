@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <title>Exercise 6</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Course</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" onClick="loadTable();">Reload <i class="fas fa-sync-alt"></i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1>Exercise #6</h1>
+        <table class="table table-striped" id="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name
+                    <th scope="col">Teacher</th>
+                    <th scope="col">Link</th>
+                </tr>
+            </thead>
+            <tbody id="content">
+            </tbody>
+        </table>
+    </div>
+</body>
+<!-- <script type="text/javascript" src="course.json"></script> -->
+<script>
+
+
+    function readTextFile(file, callback) {
+        var rawFile = new XMLHttpRequest();
+        rawFile.overrideMimeType("application/json");
+        rawFile.open("GET", file, true);
+        rawFile.onreadystatechange = function() {
+            if (rawFile.readyState === 4 && rawFile.status == "200") {
+                callback(rawFile.responseText);
+            }
+        }
+        rawFile.send(null);
+    }
+
+    clearTable = function(id) {
+        table = document.getElementById(id);
+        for(i = table.rows.length - 1; i > 0; i--) {
+            table.deleteRow(i);
+        }
+    }
+
+    loadTable = function() {
+        
+        readTextFile("course.json", function(text){
+            var data = JSON.parse(text);
+            // console.log('data', data);
+
+            tableID = 'table';
+            var table = document.getElementById(tableID);
+
+            clearTable(tableID);
+
+            for(i = 0; i < data.length; i++) {
+                numRows = table.rows.length;
+                row = table.insertRow(numRows);
+                row.innerHTML = "<td>"+data[i].name+"</td> \
+                                <td>"+data[i].teacher+"</td> \
+                                <td><a href='"+data[i].link+"' target='_blank'><i class='fas fa-external-link-alt'></i></a></td>";
+            }
+        });
+    }
+
+    window.onload = function(e) {
+        loadTable();
+    }
+</script>
+<script src="../../vendor/jquery/jquery.min.js"></script>
+<script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</html>
